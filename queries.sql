@@ -1,3 +1,9 @@
+psql --host=mydb.abcdefgh.us-east-1.rds.amazonaws.com \
+     --port=5432 \
+     --username=gang_93 \
+     --dbname=gamg_93_db
+
+
 -- Special Query #1: Weekly Sales History
 -- Count of orders grouped by week number
 SELECT
