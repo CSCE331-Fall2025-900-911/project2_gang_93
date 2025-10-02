@@ -25,7 +25,7 @@ INVENTORY_ITEMS = [
     (2003, 'Matcha Powder (oz)', 25000), (2004, 'Whole Milk (gallons)', 10000),
     (2005, 'Tapioca Pearls (oz)', 100000), (2006, 'Brown Sugar Syrup (L)', 8000),
     (2007, 'Oolong Tea Leaves (oz)', 40000), (2008, 'Coffee Beans (oz)', 60000),
-    (2009, '16oz Cups', 80000), (2010, '24oz Cups', 80000), (2011, 'Lids', 160000),
+    (2009, '16oz Cups', 80000), (2011, 'Lids', 160000),
     (2012, 'Straws', 200000), (2013, 'Napkins (count)', 150000), (2014, 'Coffee Jelly (oz)', 15000),
     (2015, 'Green Tea Leaves (oz)', 40000), (2016, 'Sugar (lbs)', 20000),
     (2017, 'Strawberry Puree (L)', 5000), (2018, 'Mango Puree (L)', 5000),
@@ -36,6 +36,7 @@ INVENTORY_ITEMS = [
     (2027, 'Cream Cheese Foam (L)', 1000), (2028, 'Almond Milk (gallons)', 2000),
     (2029, 'Whipped Cream (can)', 500)
 ]
+#assuming each serving uses 1 cup, 1 lid, and 1 straw
 SERVING_WARE = [{'itemId': 2009, 'qty': 1}, {'itemId': 2011, 'qty': 1}, {'itemId': 2012, 'qty': 1}]
 MENU_ITEMS = [
     {'id': 101, 'name': 'Classic Milk Tea', 'price': 5.25, 'ingredients': SERVING_WARE + [{'itemId': 2001, 'qty': 0.5}, {'itemId': 2004, 'qty': 0.01}, {'itemId': 2016, 'qty': 0.1}]},
@@ -105,7 +106,8 @@ def generate_csv_files():
 
     print("\nGenerating transactional data (this may take a moment)...")
 
-    inventory_state = {item[0]: item[2] for item in INVENTORY_ITEMS}
+    # Initialize inventory id : initial quantity dictionary
+    inventory_state = {item[0] : item[2] for item in INVENTORY_ITEMS}
     
     transactions_data = []
     sales_data = []
