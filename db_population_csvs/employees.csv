@@ -1,0 +1,16 @@
+employeeId,firstName,lastName,authLevel
+1,Pat,Williams,Barista
+2,Pat,Wilson,Barista
+3,Taylor,Lee,Barista
+4,Peter,Moore,Barista
+5,Pat,Jones,Manager
+6,Mary,Moore,Manager
+7,Chris,Smith,Barista
+8,Sue,Moore,Barista
+9,Peter,Wilson,Manager
+10,Sue,Brown,Barista
+11,Mary,Davis,Manager
+12,Taylor,Smith,Manager
+13,Mary,Jones,Manager
+14,Peter,Doe,Manager
+15,John,Jones,Manager
