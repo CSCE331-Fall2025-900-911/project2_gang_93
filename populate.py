@@ -7,6 +7,8 @@ import time
 import csv
 import os
 
+
+# Static Items and Configurations
 OUTPUT_DIRECTORY = "db_population_csvs"
 
 NUM_WEEKS = 39
@@ -57,6 +59,8 @@ MENU_POPULARITY = [0.12, 0.08, 0.07, 0.10, 0.06, 0.05, 0.05, 0.08, 0.06, 0.04, 0
 FIRST_NAMES = ['John', 'Jane', 'Peter', 'Mary', 'Mike', 'Sue', 'Chris', 'Pat', 'Alex', 'Taylor']
 LAST_NAMES = ['Smith', 'Doe', 'Jones', 'Williams', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Lee']
 
+
+# csv generation functions
 def write_to_csv(filename, header, data_rows):
     """Writes a list of lists to a CSV file."""
     filepath = os.path.join(OUTPUT_DIRECTORY, filename)
@@ -78,6 +82,7 @@ def generate_csv_files():
    
     print("\nGenerating static data...")
 
+    # Static data generation
     employees_data = [(i+1, random.choice(FIRST_NAMES), random.choice(LAST_NAMES), random.choice(['Manager', 'Barista'])) for i in range(NUM_EMPLOYEES)]
     write_to_csv('employees.csv', ['employeeId', 'firstName', 'lastName', 'authLevel'], employees_data)
 
@@ -114,6 +119,7 @@ def generate_csv_files():
     sale_id_counter = 1
     total_generated_sales = 0
     
+    # Sales and Transactions generation
     current_date = START_DATE
     while current_date.date() <= datetime.datetime.now().date():
         daily_sales = 0
@@ -160,7 +166,7 @@ def generate_csv_files():
 
     end_time = time.time()
     print("\n" + "="*40)
-    print("✅ CSV file generation complete!")
+    print("CSV file generation complete!")
     print(f"Total time to generate files: {end_time - start_time:.2f} seconds")
     print(f"Total transactions generated: {len(transactions_data)}")
     print(f"Total sales generated: ${total_generated_sales:,.2f}")
@@ -177,4 +183,3 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"\nAn error occurred: {e}", file=sys.stderr)
-
