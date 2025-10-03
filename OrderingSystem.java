@@ -63,8 +63,15 @@ public class OrderingSystem extends JFrame {
         JButton checkoutBtn = new JButton("Checkout");
         checkoutBtn.addActionListener(e -> checkout());
 
+        JButton managerBtn = new JButton("Manager View");
+        managerBtn.addActionListener(e -> {
+            ManagerView managerView = new ManagerView();
+            managerView.setLocationRelativeTo(this);
+        });
+
         buttonPanel.add(removeBtn);
         buttonPanel.add(checkoutBtn);
+        buttonPanel.add(managerBtn);
         cartPanel.add(buttonPanel, BorderLayout.NORTH);
 
         // Add panels to frame
@@ -110,7 +117,8 @@ public class OrderingSystem extends JFrame {
         if (cart.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Cart is empty!", "Checkout", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Order placed successfully!", "Checkout", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Order placed successfully!", "Checkout",
+                    JOptionPane.INFORMATION_MESSAGE);
             cart.clear();
             updateCart();
         }
